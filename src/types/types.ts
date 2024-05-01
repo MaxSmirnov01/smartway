@@ -13,6 +13,6 @@ export interface Storage {
   favoriteRepositories: Item[];
   state: string;
   error: string;
-  fetchRepositories: (value: string) => Promise<void>;
+  fetchRepositories: (value: string, signal: AbortSignal) => Promise<void>;
   addFavoriteRepo: (item: Item) => void;
 }

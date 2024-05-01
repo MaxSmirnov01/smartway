@@ -11,13 +11,13 @@ class Store implements Storage {
     makeAutoObservable(this);
   }
 
-  async fetchRepositories(value: string) {
+  async fetchRepositories(value: string, signal: AbortSignal) {
     this.repositories = null;
     this.state = 'pending';
     this.error = '';
 
     try {
-      const response = await fetch(`https://api.github.com/search/repositories?q=${value}`);
+      const response = await fetch(`https://api.github.com/search/repositories?q=${value}`, { signal });
       const data = await response.json();
 
       runInAction(() => {
@@ -32,7 +32,15 @@ class Store implements Storage {
     } catch (e) {
       runInAction(() => {
         this.state = 'error';
-        this.error = e instanceof Error ? e.message : 'Unknown error';
+        if (e instanceof Error) {
+          if (e.name === 'AbortError') {
+            console.log('Запрос отменен');
+          } else {
+            this.error = e.message;
+          }
+        } else {
+          this.error = 'Unknown error';
+        }
       });
     }
   }

@@ -31,13 +31,18 @@ export const ItemImg = styled.img`
 
 export const CardContent = styled.div`
   display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
   justify-content: space-evenly;
   padding: 16px;
   flex-grow: 1;
   gap: 10px;
   overflow: hidden;
+`;
+
+export const LinkWrapper = styled.div`
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
 export const Link = styled.a`
@@ -56,4 +61,9 @@ export const Button = styled.button`
   font-family: inherit;
   font-size: 16px;
   padding: 5px 15px;
+
+  &:hover {
+    transition: background-color 0.3s ease;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
 `;
