@@ -10,12 +10,12 @@ const App = () => {
       element: <Main />,
     },
     {
-      path: '*',
-      element: <NotFound />,
-    },
-    {
       path: '/:name',
       element: <RepositoryPage />,
+    },
+    {
+      path: '*',
+      element: <NotFound />,
     },
   ]);
 
