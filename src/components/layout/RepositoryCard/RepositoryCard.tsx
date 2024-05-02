@@ -4,7 +4,7 @@ import { Item } from '../../../types/types';
 import { CardContent, ItemContainer, ItemImg, LinkWrapper, Link, CardText, Button } from './styles';
 import { useNavigate } from 'react-router-dom';
 
-const RepositoryCard = observer(({ item }: Item) => {
+const RepositoryCard = observer(({ item }: { item: Item }) => {
   const store = useStore();
   const navigate = useNavigate();
 

@@ -2,6 +2,7 @@ import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import { InputContainer, InputWrapper } from './styles';
 import useStore from '../../../hooks/useStore';
 import useThrottle from '../../../hooks/useThrottle';
+import CopyButton from '../CopyButton/CopyButton';
 
 const Input = () => {
   const [value, setValue] = useState<string>('');
@@ -45,6 +46,7 @@ const Input = () => {
         onChange={(e) => handleChange(e)}
         ref={input}
       />
+      <CopyButton value={value} />
     </InputContainer>
   );
 };

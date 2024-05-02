@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const InputContainer = styled.section`
   display: flex;
   justify-content: center;
+  gap: 30px;
 `;
 
 export const InputWrapper = styled.input`
