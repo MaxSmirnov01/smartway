@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react-lite';
 import useStore from '../../../hooks/useStore';
 import { Item } from '../../../types/types';
-import Repository from '../Repository/Repository';
+import RepositoryCard from '../RepositoryCard/RepositoryCard';
 import { RepositoryBoxWrapper, ItemBox, H2Wrapper, HrWrapper } from './styles';
 
 const FavoriteRepositoryBox = observer(() => {
@@ -12,7 +12,7 @@ const FavoriteRepositoryBox = observer(() => {
       <H2Wrapper>Список избранных репозиториев:</H2Wrapper>
       <HrWrapper />
       <ItemBox>
-        {favoriteRepositories && favoriteRepositories.map((item: Item) => <Repository key={item.id} item={item} />)}
+        {favoriteRepositories && favoriteRepositories.map((item: Item) => <RepositoryCard key={item.id} item={item} />)}
       </ItemBox>
     </RepositoryBoxWrapper>
   );

@@ -1,6 +1,7 @@
 import { useRoutes } from 'react-router-dom';
 import Main from './pages/Main';
 import NotFound from './pages/NotFound';
+import RepositoryPage from './pages/RepositoryPage';
 
 const App = () => {
   const pages = useRoutes([
@@ -11,6 +12,10 @@ const App = () => {
     {
       path: '*',
       element: <NotFound />,
+    },
+    {
+      path: '/:name',
+      element: <RepositoryPage />,
     },
   ]);
 

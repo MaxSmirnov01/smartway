@@ -1,8 +1,8 @@
 import { makeAutoObservable, runInAction } from 'mobx';
-import { Storage, Item } from '../types/types';
+import { Storage, Item, Repositories } from '../types/types';
 
 class Store implements Storage {
-  repositories = null;
+  repositories: Repositories | null = null;
   favoriteRepositories: Item[] = [];
   state = '';
   error = '';
@@ -48,6 +48,12 @@ class Store implements Storage {
   addFavoriteRepo(item: Item) {
     if (!this.favoriteRepositories.some((el) => el.id === item.id)) {
       this.favoriteRepositories.push(item);
+    }
+  }
+
+  getRepository(name: string) {
+    if (this.repositories) {
+      return this.repositories.items.find((item) => item.name === name);
     }
   }
 }

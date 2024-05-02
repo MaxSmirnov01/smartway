@@ -2,9 +2,11 @@ import { observer } from 'mobx-react-lite';
 import useStore from '../../../hooks/useStore';
 import { Item } from '../../../types/types';
 import { CardContent, ItemContainer, ItemImg, LinkWrapper, Link, CardText, Button } from './styles';
+import { useNavigate } from 'react-router-dom';
 
-const Repository = observer(({ item }: Item) => {
+const RepositoryCard = observer(({ item }: Item) => {
   const store = useStore();
+  const navigate = useNavigate();
 
   const addFavorite = () => {
     store.addFavoriteRepo(item);
@@ -12,6 +14,7 @@ const Repository = observer(({ item }: Item) => {
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.stopPropagation();
+    navigate(`/${item.name}`);
   };
 
   return (
@@ -33,4 +36,4 @@ const Repository = observer(({ item }: Item) => {
   );
 });
 
-export default Repository;
+export default RepositoryCard;

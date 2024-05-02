@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react-lite';
 import useStore from '../../../hooks/useStore';
 import { Item } from '../../../types/types';
-import Repository from '../Repository/Repository';
+import RepositoryCard from '../RepositoryCard/RepositoryCard';
 import { ItemBox, RepositoryBoxWrapper, Error, H2Wrapper, HrWrapper } from './styles';
 
 const RepositoryBox = observer(() => {
@@ -20,7 +20,7 @@ const RepositoryBox = observer(() => {
         <ItemBox>
           {repositories &&
             repositories.items &&
-            repositories.items.map((item: Item) => <Repository key={item.id} item={item} />)}
+            repositories.items.map((item: Item) => <RepositoryCard key={item.id} item={item} />)}
         </ItemBox>
       )}
     </RepositoryBoxWrapper>
